@@ -6,7 +6,7 @@
         "version": "1.0.0"
     },
     "paths": {
-        "api/articles": {
+        "/articles": {
             "get": {
                 "tags": [
                     "Articles"
@@ -47,7 +47,7 @@
                 }
             }
         },
-        "api/articles/{id}": {
+        "/articles/{id}": {
             "get": {
                 "tags": [
                     "Articles"
@@ -97,7 +97,7 @@
                 }
             }
         },
-        "api/bots": {
+        "/bots": {
             "get": {
                 "tags": [
                     "Bots"
@@ -138,7 +138,7 @@
                 }
             }
         },
-        "api/bots/{id}": {
+        "/bots/{id}": {
             "get": {
                 "tags": [
                     "Bots"
@@ -188,7 +188,7 @@
                 }
             }
         },
-        "api/": {
+        "/": {
             "get": {
                 "tags": [
                     "Channels"
@@ -229,7 +229,7 @@
                 }
             }
         },
-        "api/channels/{id}": {
+        "/channels/{id}": {
             "get": {
                 "tags": [
                     "Channels"
@@ -279,7 +279,7 @@
                 }
             }
         },
-        "api/chats": {
+        "/chats": {
             "get": {
                 "tags": [
                     "Chats"
@@ -320,7 +320,7 @@
                 }
             }
         },
-        "api/chats/{id}": {
+        "/chats/{id}": {
             "get": {
                 "tags": [
                     "Chats"

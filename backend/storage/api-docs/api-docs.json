@@ -1,0 +1,1017 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Teleshtorm API",
+        "description": "Документация для Teleshtorm",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "api/articles": {
+            "get": {
+                "tags": [
+                    "Articles"
+                ],
+                "summary": "Получить список всех статей",
+                "description": "Возвращает список всех статей с их параметрами",
+                "operationId": "fe9e272f592442e754d2259db83f71ed",
+                "responses": {
+                    "200": {
+                        "description": "Список статей успешно получен",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Article"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Статьи не найдены",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Chats not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "api/articles/{id}": {
+            "get": {
+                "tags": [
+                    "Articles"
+                ],
+                "summary": "Получить статью по ID",
+                "description": "Возвращает информацию о статье по её ID",
+                "operationId": "a2de8d700090c58d825d79af1b8530d8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID статьи",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Статья успешно найдена",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Article"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Статья не найдена",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Channel not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "api/bots": {
+            "get": {
+                "tags": [
+                    "Bots"
+                ],
+                "summary": "Получить список всех ботов",
+                "description": "Возвращает список всех ботов с их параметрами",
+                "operationId": "3f5f4b1fec5f805ac0df75d203b55d1c",
+                "responses": {
+                    "200": {
+                        "description": "Список ботов успешно получен",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Bot"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Боты не найдены",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Bots not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "api/bots/{id}": {
+            "get": {
+                "tags": [
+                    "Bots"
+                ],
+                "summary": "Получить бота по ID",
+                "description": "Возвращает информацию о боте по его ID",
+                "operationId": "9e35d88a5e6d94ce3d71d0ecb16e9cab",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID бота",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Бот успешно найден",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Bot"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Бот не найден",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Bot not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "api/": {
+            "get": {
+                "tags": [
+                    "Channels"
+                ],
+                "summary": "Получить список всех каналов",
+                "description": "Возвращает список всех Telegram-каналов с их параметрами",
+                "operationId": "95624298c46c3134d64c1897b58e2aa6",
+                "responses": {
+                    "200": {
+                        "description": "Список каналов успешно получен",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Channel"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Каналы не найдены",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Channels not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "api/channels/{id}": {
+            "get": {
+                "tags": [
+                    "Channels"
+                ],
+                "summary": "Получить канал по ID",
+                "description": "Возвращает информацию о Telegram-канале по его ID",
+                "operationId": "44dc9104a3b12169642e24ca67351148",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID канала",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Канал успешно найден",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Channel"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Канал не найден",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Channel not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "api/chats": {
+            "get": {
+                "tags": [
+                    "Chats"
+                ],
+                "summary": "Получить список всех чатов",
+                "description": "Возвращает список всех чатов с их параметрами",
+                "operationId": "ce641b0f8cc34edd6c92cbca79524eab",
+                "responses": {
+                    "200": {
+                        "description": "Список чатов успешно получен",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Chat"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Чаты не найдены",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Chats not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "api/chats/{id}": {
+            "get": {
+                "tags": [
+                    "Chats"
+                ],
+                "summary": "Получить чат по ID",
+                "description": "Возвращает информацию о чате по его ID",
+                "operationId": "218ac846cfc3cdc3a4b1b53aec5d370b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID чата",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Чат успешно найден",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Chat"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Чат не найден",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Chat not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AddRequest": {
+                "title": "AddRequest",
+                "description": "Модель запроса на добавление канала",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Название запроса"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Описание запроса"
+                    },
+                    "image": {
+                        "type": "string",
+                        "example": "request_image.jpg"
+                    },
+                    "link_tg": {
+                        "type": "string",
+                        "example": "https://t.me/example_request"
+                    },
+                    "category_id": {
+                        "type": "integer",
+                        "example": 3
+                    },
+                    "category": {
+                        "$ref": "#/components/schemas/ChannelCategory"
+                    },
+                    "second_category": {
+                        "type": "string",
+                        "example": "Доп. категория"
+                    },
+                    "subscribers": {
+                        "type": "integer",
+                        "example": 500
+                    }
+                },
+                "type": "object"
+            },
+            "AddRequestInput": {
+                "title": "AddRequest Input",
+                "description": "Данные для создания или обновления запроса на добавление канала",
+                "required": [
+                    "name",
+                    "category_id"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "Название запроса"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Описание запроса"
+                    },
+                    "image": {
+                        "type": "string",
+                        "example": "request_image.jpg"
+                    },
+                    "link_tg": {
+                        "type": "string",
+                        "example": "https://t.me/example_request"
+                    },
+                    "category_id": {
+                        "type": "integer",
+                        "example": 3
+                    },
+                    "second_category": {
+                        "type": "string",
+                        "example": "Доп. категория"
+                    },
+                    "subscribers": {
+                        "type": "integer",
+                        "example": 500
+                    }
+                },
+                "type": "object"
+            },
+            "Article": {
+                "title": "Article",
+                "description": "Модель статьи",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Название статьи"
+                    },
+                    "translit_name": {
+                        "type": "string",
+                        "example": "nazvanie-stati"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Краткое описание статьи"
+                    },
+                    "content": {
+                        "type": "string",
+                        "example": "Полное содержание статьи"
+                    },
+                    "image": {
+                        "type": "string",
+                        "example": "image.jpg"
+                    },
+                    "recommended": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "category_id": {
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "translates": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": {
+                            "en": "Article in English",
+                            "fr": "Article en Français"
+                        }
+                    },
+                    "telegram_post_id": {
+                        "type": "string",
+                        "example": "123456789"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-08-26T12:00:00Z"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-08-26T12:30:00Z"
+                    },
+                    "category": {
+                        "$ref": "#/components/schemas/ArticleCategory"
+                    }
+                },
+                "type": "object"
+            },
+            "ArticleInput": {
+                "title": "Article Input",
+                "description": "Данные для создания или обновления статьи",
+                "required": [
+                    "name",
+                    "content",
+                    "category_id"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "Название статьи"
+                    },
+                    "translit_name": {
+                        "type": "string",
+                        "example": "nazvanie-stati"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Краткое описание статьи"
+                    },
+                    "content": {
+                        "type": "string",
+                        "example": "Полное содержание статьи"
+                    },
+                    "image": {
+                        "type": "string",
+                        "example": "image.jpg"
+                    },
+                    "recommended": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "category_id": {
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "translates": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": {
+                            "en": "Article in English",
+                            "fr": "Article en Français"
+                        }
+                    },
+                    "telegram_post_id": {
+                        "type": "string",
+                        "example": "123456789"
+                    }
+                },
+                "type": "object"
+            },
+            "ArticleCategory": {
+                "title": "ArticleCategory",
+                "description": "Модель категории статьи",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Новости"
+                    },
+                    "translit_name": {
+                        "type": "string",
+                        "example": "novosti"
+                    },
+                    "translates": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": {
+                            "en": "News",
+                            "fr": "Nouvelles"
+                        }
+                    },
+                    "articles": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Article"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "ArticleCategoryInput": {
+                "title": "ArticleCategory Input",
+                "description": "Данные для создания или обновления категории статьи",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "Новости"
+                    },
+                    "translit_name": {
+                        "type": "string",
+                        "example": "novosti"
+                    },
+                    "translates": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": {
+                            "en": "News",
+                            "fr": "Nouvelles"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Bot": {
+                "title": "Bot",
+                "description": "Модель бота",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Название бота"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Описание бота"
+                    },
+                    "image": {
+                        "type": "string",
+                        "example": "bot_image.jpg"
+                    },
+                    "link_tg": {
+                        "type": "string",
+                        "example": "https://t.me/example_bot"
+                    },
+                    "translates": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": {
+                            "en": "Bot description in English",
+                            "fr": "Description du bot en Français"
+                        }
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-08-26T12:00:00Z"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-08-26T12:30:00Z"
+                    }
+                },
+                "type": "object"
+            },
+            "BotInput": {
+                "title": "Bot Input",
+                "description": "Данные для создания или обновления бота",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "Название бота"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Описание бота"
+                    },
+                    "image": {
+                        "type": "string",
+                        "example": "bot_image.jpg"
+                    },
+                    "link_tg": {
+                        "type": "string",
+                        "example": "https://t.me/example_bot"
+                    },
+                    "translates": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": {
+                            "en": "Bot description in English",
+                            "fr": "Description du bot en Français"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Channel": {
+                "title": "Channel",
+                "description": "Модель канала",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Название канала"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Описание канала"
+                    },
+                    "category_id": {
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "category": {
+                        "$ref": "#/components/schemas/ChannelCategory"
+                    },
+                    "image": {
+                        "type": "string",
+                        "example": "channel_image.jpg"
+                    },
+                    "link_tg": {
+                        "type": "string",
+                        "example": "https://t.me/example_channel"
+                    },
+                    "hidden": {
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "activity": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "subscribers": {
+                        "type": "integer",
+                        "example": 1500
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-08-26T12:00:00Z"
+                    },
+                    "translates": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": {
+                            "en": "Channel description in English",
+                            "fr": "Description du channel en Français"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "ChannelInput": {
+                "title": "Channel Input",
+                "description": "Данные для создания или обновления канала",
+                "required": [
+                    "name",
+                    "category_id"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "Название канала"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Описание канала"
+                    },
+                    "category_id": {
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "image": {
+                        "type": "string",
+                        "example": "channel_image.jpg"
+                    },
+                    "link_tg": {
+                        "type": "string",
+                        "example": "https://t.me/example_channel"
+                    },
+                    "hidden": {
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "activity": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "subscribers": {
+                        "type": "integer",
+                        "example": 1500
+                    },
+                    "translates": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": {
+                            "en": "Channel description in English",
+                            "fr": "Description du channel en Français"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "ChannelCategory": {
+                "title": "ChannelCategory",
+                "description": "Модель категории канала",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Технологии"
+                    },
+                    "translit_name": {
+                        "type": "string",
+                        "example": "technologii"
+                    },
+                    "translates": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": {
+                            "en": "Technology",
+                            "fr": "Technologie"
+                        }
+                    },
+                    "channels": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Channel"
+                        }
+                    },
+                    "addRequests": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AddRequest"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "ChannelCategoryInput": {
+                "title": "ChannelCategory Input",
+                "description": "Данные для создания или обновления категории канала",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "Технологии"
+                    },
+                    "translit_name": {
+                        "type": "string",
+                        "example": "technologii"
+                    },
+                    "translates": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": {
+                            "en": "Technology",
+                            "fr": "Technologie"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Chat": {
+                "title": "Chat",
+                "description": "Модель чата",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Название чата"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Описание чата"
+                    },
+                    "image": {
+                        "type": "string",
+                        "example": "chat_image.jpg"
+                    },
+                    "link_tg": {
+                        "type": "string",
+                        "example": "https://t.me/example_chat"
+                    },
+                    "subscribers": {
+                        "type": "integer",
+                        "example": 1234
+                    },
+                    "translates": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": {
+                            "en": "Chat description in English",
+                            "fr": "Description du chat en Français"
+                        }
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-08-26T12:00:00Z"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-08-26T12:30:00Z"
+                    }
+                },
+                "type": "object"
+            },
+            "ChatInput": {
+                "title": "Chat Input",
+                "description": "Данные для создания или обновления чата",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "Название чата"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Описание чата"
+                    },
+                    "image": {
+                        "type": "string",
+                        "example": "chat_image.jpg"
+                    },
+                    "link_tg": {
+                        "type": "string",
+                        "example": "https://t.me/example_chat"
+                    },
+                    "subscribers": {
+                        "type": "integer",
+                        "example": 1234
+                    },
+                    "translates": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": {
+                            "en": "Chat description in English",
+                            "fr": "Description du chat en Français"
+                        }
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Articles",
+            "description": "Articles"
+        },
+        {
+            "name": "Bots",
+            "description": "Bots"
+        },
+        {
+            "name": "Channels",
+            "description": "Channels"
+        },
+        {
+            "name": "Chats",
+            "description": "Chats"
+        }
+    ]
+}
